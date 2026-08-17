@@ -1,17 +1,18 @@
-import css from "./Pagination.module.css";
-import * as ReactPaginateModule from "react-paginate";
 import type { ComponentType } from "react";
+import ReactPaginateModule from "react-paginate";
 import type { ReactPaginateProps } from "react-paginate";
 
-interface ModuleWithDefault<T> {
+import css from "./Pagination.module.css";
+
+type ModuleWithDefault<T> = {
   default: T;
-}
+};
 
 const ReactPaginate = (
   ReactPaginateModule as unknown as ModuleWithDefault<
-    ModuleWithDefault<ComponentType<ReactPaginateProps>>
+    ComponentType<ReactPaginateProps>
   >
-).default.default;
+).default;
 
 interface PaginationProps {
   page: number;
